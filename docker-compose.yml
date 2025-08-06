@@ -1,4 +1,4 @@
-# Docker Compose for AlgoU-Project
+# Docker Compose for Coding Arena
 services:
   # MongoDB database
   mongo:
@@ -17,8 +17,10 @@ services:
       - "5000:5000"
     depends_on:
       - mongo
-    environment:
-      - MONGO_URL=mongodb://mongo:27017/algou
+    env_file:
+      - .env
+    command: >
+      sh -c "node seed.js && node server.js"
 
   # React frontend
   frontend:

@@ -1,13 +1,32 @@
-// Submission schema for MongoDB
 const mongoose = require('mongoose');
 
 const SubmissionSchema = new mongoose.Schema({
-  code: String,
-  language: String,
-  verdict: String,
-  stdout: String,
-  stderr: String,
-  createdAt: { type: Date, default: Date.now }
+    problemId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Problem',
+        required: true
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    code: {
+        type: String,
+        required: true
+    },
+    language: {
+        type: String,
+        required: true
+    },
+    output: {
+        type: String,
+        required: true
+    },
+    submittedAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model('Submission', SubmissionSchema);
