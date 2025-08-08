@@ -1,0 +1,1022 @@
+[
+  {
+    "name": "Two Sum",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  },
+  {
+    "name": "Palindrome Number",
+    "description": "Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n\nConstraints:\n- -2^31 <= x <= 2^31 - 1\n\nExample:\nInput: 121\nOutput: true\nExplanation: Reads same from left and right.",
+    "difficulty": "Easy",
+    "tags": [
+      "math"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1001",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1000021",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "22",
+        "expectedOutput": "true"
+      }
+    ]
+  },
+  {
+    "name": "Two Sum (Variant 4)",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String (Variant 5)",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  },
+  {
+    "name": "Palindrome Number (Variant 6)",
+    "description": "Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n\nConstraints:\n- -2^31 <= x <= 2^31 - 1\n\nExample:\nInput: 121\nOutput: true\nExplanation: Reads same from left and right.",
+    "difficulty": "Easy",
+    "tags": [
+      "math"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1001",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1000021",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "22",
+        "expectedOutput": "true"
+      }
+    ]
+  },
+  {
+    "name": "Two Sum (Variant 7)",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String (Variant 8)",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  },
+  {
+    "name": "Palindrome Number (Variant 9)",
+    "description": "Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n\nConstraints:\n- -2^31 <= x <= 2^31 - 1\n\nExample:\nInput: 121\nOutput: true\nExplanation: Reads same from left and right.",
+    "difficulty": "Easy",
+    "tags": [
+      "math"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1001",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1000021",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "22",
+        "expectedOutput": "true"
+      }
+    ]
+  },
+  {
+    "name": "Two Sum (Variant 10)",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String (Variant 11)",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  },
+  {
+    "name": "Palindrome Number (Variant 12)",
+    "description": "Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n\nConstraints:\n- -2^31 <= x <= 2^31 - 1\n\nExample:\nInput: 121\nOutput: true\nExplanation: Reads same from left and right.",
+    "difficulty": "Easy",
+    "tags": [
+      "math"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1001",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1000021",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "22",
+        "expectedOutput": "true"
+      }
+    ]
+  },
+  {
+    "name": "Two Sum (Variant 13)",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String (Variant 14)",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  },
+  {
+    "name": "Palindrome Number (Variant 15)",
+    "description": "Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n\nConstraints:\n- -2^31 <= x <= 2^31 - 1\n\nExample:\nInput: 121\nOutput: true\nExplanation: Reads same from left and right.",
+    "difficulty": "Easy",
+    "tags": [
+      "math"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1001",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1000021",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "22",
+        "expectedOutput": "true"
+      }
+    ]
+  },
+  {
+    "name": "Two Sum (Variant 16)",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String (Variant 17)",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  },
+  {
+    "name": "Palindrome Number (Variant 18)",
+    "description": "Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.\n\nConstraints:\n- -2^31 <= x <= 2^31 - 1\n\nExample:\nInput: 121\nOutput: true\nExplanation: Reads same from left and right.",
+    "difficulty": "Easy",
+    "tags": [
+      "math"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123321",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1001",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1000021",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "22",
+        "expectedOutput": "true"
+      }
+    ]
+  },
+  {
+    "name": "Two Sum (Variant 19)",
+    "description": "Given an array of integers nums and an integer target, return the indices of the two numbers such that they add up to target.\n\nConstraints:\n- 2 <= nums.length <= 10^4\n- -10^9 <= nums[i] <= 10^9\n- -10^9 <= target <= 10^9\n\nExample:\nInput: nums = [2,7,11,15], target = 9\nOutput: [0,1]\nExplanation: Because nums[0] + nums[1] == 9, we return [0,1].",
+    "difficulty": "Easy",
+    "tags": [
+      "array"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "[2,7,11,15], 9",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[3,2,4], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[1,3,4,2], 6",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[3,3], 6",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[0,4,3,0], 0",
+        "expectedOutput": "[0,3]"
+      },
+      {
+        "input": "[2,5,5,11], 10",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[-3,4,3,90], 0",
+        "expectedOutput": "[0,2]"
+      },
+      {
+        "input": "[1,2], 3",
+        "expectedOutput": "[0,1]"
+      },
+      {
+        "input": "[5,75,25], 100",
+        "expectedOutput": "[1,2]"
+      },
+      {
+        "input": "[230,863,916,585,981,404,316,785,88,12], 542",
+        "expectedOutput": "[4,9]"
+      }
+    ]
+  },
+  {
+    "name": "Reverse String (Variant 20)",
+    "description": "Write a function that reverses a string. The input string is given as an array of characters.\n\nConstraints:\n- 1 <= s.length <= 10^5\n- s[i] is a printable ASCII character.\n\nExample:\nInput: s = \"hello\"\nOutput: \"olleh\"",
+    "difficulty": "Easy",
+    "tags": [
+      "string"
+    ],
+    "author": "Admin",
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"aibohphobia\"",
+        "expectedOutput": "\"aibohphobia\""
+      },
+      {
+        "input": "\"abcd\"",
+        "expectedOutput": "\"dcba\""
+      },
+      {
+        "input": "\"racecar\"",
+        "expectedOutput": "\"racecar\""
+      },
+      {
+        "input": "\"A\"",
+        "expectedOutput": "\"A\""
+      },
+      {
+        "input": "\"abcABC\"",
+        "expectedOutput": "\"CBAcba\""
+      },
+      {
+        "input": "\"12345\"",
+        "expectedOutput": "\"54321\""
+      },
+      {
+        "input": "\"!@#\"",
+        "expectedOutput": "\"#@!\""
+      },
+      {
+        "input": "\"a b c\"",
+        "expectedOutput": "\"c b a\""
+      },
+      {
+        "input": "\"longstringtest\"",
+        "expectedOutput": "\"tsetgnirtsgnol\""
+      }
+    ]
+  }
+]

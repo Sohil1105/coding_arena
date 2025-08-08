@@ -1,13 +1,5 @@
 # Docker Compose for Coding Arena
 services:
-  # MongoDB database
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-
   # Node.js/Express backend
   backend:
     build:
@@ -15,12 +7,22 @@ services:
       dockerfile: DockerFile
     ports:
       - "5000:5000"
-    depends_on:
-      - mongo
     env_file:
       - .env
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - compiler
     command: >
-      sh -c "node seed.js && node server.js"
+      sh -c "npm install && node seedFromJson.js && node server.js"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
 
   # React frontend
   frontend:
@@ -31,6 +33,22 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+    env_file:
+      - .env
+    environment:
+      - REACT_APP_API_URL=http://backend:5000
+    networks:
+      - app-network
 
-volumes:
-  mongo-data:
+  compiler:
+    build:
+      context: ./temp-compiler/backend
+      dockerfile: DockerFile
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

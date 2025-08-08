@@ -3,9 +3,7 @@ const router = express.Router();
 const Problem = require('./models/problem');
 const auth = require('./middleware/auth');
 
-// @route   GET api/problems
-//@desc    Get all problems
-// @access  Public
+// Fetch all problems
 router.get('/', async (req, res) => {
     try {
         const problems = await Problem.find();
@@ -16,9 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// @route   GET api/problems/:id
-// @desc    Get problem by ID
-// @access  Public
+// Fetch a single problem by ID
 router.get('/:id', async (req, res) => {
     try {
         const problem = await Problem.findById(req.params.id);
@@ -32,21 +28,18 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-// @route   POST api/problems
-// @desc    Create a problem
-// @access  Private
+// Create a new problem
 router.post('/', auth, async (req, res) => {
-    const { id, title, description, difficulty, tags, testCases, author } = req.body;
+    const { title, description, difficulty, tags, testCases } = req.body;
 
     try {
         const newProblem = new Problem({
-            id,
             title,
             description,
             difficulty,
             tags,
             testCases,
-            author
+            author: req.user.id
         });
 
         const problem = await newProblem.save();
@@ -57,11 +50,9 @@ router.post('/', auth, async (req, res) => {
     }
 });
 
-// @route   PUT api/problems/:id
-// @desc    Update a problem
-// @access  Private
+// Update an existing problem
 router.put('/:id', auth, async (req, res) => {
-    const { title, description, difficulty, tags, testCases, author } = req.body;
+    const { title, description, difficulty, tags, testCases } = req.body;
 
     const problemFields = {};
     if (title) problemFields.title = title;
@@ -69,20 +60,19 @@ router.put('/:id', auth, async (req, res) => {
     if (difficulty) problemFields.difficulty = difficulty;
     if (tags) problemFields.tags = tags;
     if (testCases) problemFields.testCases = testCases;
-    if (author) problemFields.author = author;
 
     try {
-        let problem = await Problem.findOne({ id: req.params.id });
+        let problem = await Problem.findById(req.params.id);
 
         if (!problem) return res.status(404).json({ msg: 'Problem not found' });
 
-        // Check user
-        if (problem.author.toString() !== req.user.id) {
+        // Verify user is the author or an admin
+        if (problem.author.toString() !== req.user.id && req.user.role !== 'admin') {
             return res.status(401).json({ msg: 'User not authorized' });
         }
 
-        problem = await Problem.findOneAndUpdate(
-            { id: req.params.id },
+        problem = await Problem.findByIdAndUpdate(
+            req.params.id,
             { $set: problemFields },
             { new: true }
         );
@@ -94,21 +84,19 @@ router.put('/:id', auth, async (req, res) => {
     }
 });
 
-// @route   DELETE api/problems/:id
-// @desc    Delete a problem
-// @access  Private
+// Delete a problem
 router.delete('/:id', auth, async (req, res) => {
     try {
-        let problem = await Problem.findOne({ id: req.params.id });
+        let problem = await Problem.findById(req.params.id);
 
         if (!problem) return res.status(404).json({ msg: 'Problem not found' });
 
-        // Check user
-        if (problem.author.toString() !== req.user.id) {
+        // Verify user is the author or an admin
+        if (problem.author.toString() !== req.user.id && req.user.role !== 'admin') {
             return res.status(401).json({ msg: 'User not authorized' });
         }
 
-        await Problem.findOneAndRemove({ id: req.params.id });
+        await Problem.findByIdAndRemove(req.params.id);
 
         res.json({ msg: 'Problem removed' });
     } catch (err) {

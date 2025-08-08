@@ -4,12 +4,19 @@ const User = require('./models/user');
 const Submission = require('./models/submission');
 const Problem = require('./models/problem');
 
-// @route   GET api/leaderboard/solvers
-// @desc    Get top solvers
-// @access  Public
+// Get top solvers by aggregating submission scores
 router.get('/solvers', async (req, res) => {
     try {
-        const topSolvers = await User.find().sort({ score: -1 }).limit(10);
+        const topSolvers = await Submission.aggregate([
+            { $match: { output: { $regex: /^Accepted/ } } },
+            { $group: { _id: { userId: '$userId', problemId: '$problemId' } } },
+            { $group: { _id: '$_id.userId', score: { $sum: 1 } } },
+            { $sort: { score: -1 } },
+            { $limit: 10 },
+            { $lookup: { from: 'users', localField: '_id', foreignField: '_id', as: 'userDetails' } },
+            { $unwind: '$userDetails' },
+            { $project: { name: '$userDetails.name', score: 1 } }
+        ]);
         res.json(topSolvers);
     } catch (err) {
         console.error(err.message);
@@ -17,9 +24,7 @@ router.get('/solvers', async (req, res) => {
     }
 });
 
-// @route   GET api/leaderboard/contributors
-// @desc    Get top contributors
-// @access  Public
+// Get top contributors by aggregating problem authors
 router.get('/contributors', async (req, res) => {
     try {
         const topContributors = await Problem.aggregate([

@@ -3,18 +3,16 @@ const router = express.Router();
 const Submission = require('./models/submission');
 const auth = require('./middleware/auth');
 
-// @route   POST api/submissions
-// @desc    Create a submission
-// @access  Private
 const axios = require('axios');
 const Problem = require('./models/problem');
 
+// Create a new submission
 router.post('/', auth, async (req, res) => {
     const { problemId, code, language } = req.body;
 
     try {
-        // Fetch problem test cases
-        const problem = await Problem.findOne({ id: problemId });
+        // Fetch problem details for test cases
+        const problem = await Problem.findById(problemId);
         if (!problem) {
             return res.status(404).json({ msg: 'Problem not found' });
         }
@@ -22,23 +20,20 @@ router.post('/', auth, async (req, res) => {
         const testCases = problem.testCases || [];
         const results = [];
 
-        // Run code against each test case using compiler backend /run API
+        // Execute code against each test case
         for (const testCase of testCases) {
-            // Prepare code with test case input appended or passed as input
-            // Here we append input as a comment or modify code accordingly
-            // For simplicity, we assume code reads input from stdin, so we send input as part of request if supported
-            // Since compiler backend only accepts code, we append input as comment (adjust as needed)
+            // Append input to the code (adjust as per compiler API)
             const codeWithInput = code + `\n// Input: ${testCase.input}`;
 
-            // Call compiler backend /run API
-            const response = await axios.post('http://localhost:8000/run', {
+            // Call the compiler service
+            const response = await axios.post(`${process.env.COMPILER_URL}/run`, {
                 language,
                 code: codeWithInput
             });
 
             const output = response.data.output.trim();
 
-            // Compare output with expected output
+            // Validate the output against the expected output
             const passed = output === testCase.output;
 
             results.push({
@@ -49,11 +44,12 @@ router.post('/', auth, async (req, res) => {
             });
         }
 
-        // Aggregate results
+        // Summarize test case results
         const allPassed = results.every(r => r.passed);
         const outputSummary = allPassed ? 'Accepted' : 'Failed';
         const detailedOutput = JSON.stringify(results, null, 2);
 
+        // Create a new submission record
         const newSubmission = new Submission({
             problemId,
             code,
@@ -70,9 +66,7 @@ router.post('/', auth, async (req, res) => {
     }
 });
 
-// @route   GET api/submissions/user/:userId
-// @desc    Get all submissions by a user
-// @access  Private
+// Fetch all submissions for a specific user
 router.get('/user/:userId', auth, async (req, res) => {
     try {
         const submissions = await Submission.find({ userId: req.params.userId }).sort({ submittedAt: -1 });

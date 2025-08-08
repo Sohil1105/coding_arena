@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./models/user');
-const auth = require('./auth');
+const auth = require('./middleware/auth');
 
 // @route   POST api/users/register
 // @desc    Register a user
@@ -37,7 +37,7 @@ router.post('/register', async (req, res) => {
 
         jwt.sign(
             payload,
-            'your_jwt_secret', // Replace with your own secret
+            process.env.JWT_SECRET,
             { expiresIn: 3600 },
             (err, token) => {
                 if (err) throw err;
@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => {
 
         jwt.sign(
             payload,
-            'your_jwt_secret', // Replace with your own secret
+            process.env.JWT_SECRET,
             { expiresIn: 3600 },
             (err, token) => {
                 if (err) throw err;

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Defines the schema for the Problem model
 const ProblemSchema = new mongoose.Schema({
     id: {
         type: String,

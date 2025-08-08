@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// Read problems from problems.json
-const problemsJsonPath = path.join(__dirname, '..', 'problems.json');
+// Read problems from problems_20.json
+const problemsJsonPath = path.join(__dirname, 'problems_20.json');
 const problemsData = JSON.parse(fs.readFileSync(problemsJsonPath, 'utf8'));
 
 // Convert problems.json format to database schema format
@@ -23,13 +23,32 @@ const problems = problemsData.map((problem, index) => ({
 }));
 
 const seedDB = async () => {
-    // Use localhost for local development, mongo for Docker
-    const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017/codingarena';
-    await mongoose.connect(mongoUrl);
-    await Problem.deleteMany({});
-    await Problem.insertMany(problems);
-    console.log(`Database seeded with ${problems.length} problems!`);
-    mongoose.connection.close();
+    const mongoUrl = process.env.MONGO_URL;
+    if (!mongoUrl) {
+        console.error('MONGO_URL environment variable is required.');
+        process.exit(1);
+    }
+    
+    try {
+        await mongoose.connect(mongoUrl, {
+            ssl: true,
+            serverSelectionTimeoutMS: 5000,
+            socketTimeoutMS: 45000,
+            maxPoolSize: 10,
+            minPoolSize: 2,
+            maxIdleTimeMS: 10000
+        });
+        
+        console.log('Connected to MongoDB successfully');
+        await Problem.deleteMany({});
+        await Problem.insertMany(problems);
+        console.log(`Database seeded with ${problems.length} problems!`);
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
+        process.exit(1);
+    } finally {
+        mongoose.connection.close();
+    }
 };
 
-seedDB(); 
+seedDB();
